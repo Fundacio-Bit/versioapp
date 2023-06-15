@@ -132,8 +132,11 @@ public class VersionsAplicacioPublicController extends AplicacioController {
         Map<Long, Integer> posicioByEntornID = (Map<Long, Integer>) request.getSession()
                 .getAttribute(POSICIO_BY_ENTORNID_SESSION);
         for (Integer posicio : posicioByEntornID.values()) {
-            Map<Long, String> entornN = (Map<Long, String>) filterForm.getAdditionalField(posicio).getValueMap();
-            entornN.clear();
+            
+            if (posicio != null) {
+              Map<Long, String> entornN = (Map<Long, String>) filterForm.getAdditionalField(posicio).getValueMap();
+              entornN.clear();
+            }
         }
 
         // OMplir les columnes de cada ENTORN per Aplicacio
@@ -221,6 +224,10 @@ public class VersionsAplicacioPublicController extends AplicacioController {
                             Long count = entornAplicacioEjb.count(Where.AND(EntornAplicacioFields.ENTORNID.equal(ent),
                                     EntornAplicacioFields.APLICACIOID.equal(app.getAplicacioID())));
                             Integer posicio = posicioByEntornID.get(ent);
+                            
+                            if (posicio == null) {
+                                continue;
+                            }
 
                             Map<Long, String> entornN = (Map<Long, String>) filterForm.getAdditionalField(posicio)
                                     .getValueMap();
