@@ -1,0 +1,13 @@
+﻿<datasources>
+    ...
+    <datasource jndi-name="java:jboss/datasources/versioappDS" pool-name="versioappDS" enabled="true"
+                use-java-context="true">
+        <connection-url>jdbc:postgresql://localhost:5432/versioapp</connection-url>
+        <driver>postgresql</driver>
+        <security>
+            <user-name>versioapp</user-name>
+            <password>versioapp</password>
+        </security>
+    </datasource>
+    ...
+</datasources>

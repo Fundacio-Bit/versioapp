@@ -1,0 +1,34 @@
+
+<%-- ========= FITXER AUTOGENERAT - NO MODIFICAR !!!!! --%>
+<%@ include file="/WEB-INF/jsp/moduls/includes.jsp"%>
+
+
+<form:form modelAttribute="entornAplicacioForm" method="${(empty method)?'post':method}"
+  enctype="multipart/form-data">
+  
+  <%@include file="entornAplicacioFormTitle.jsp" %>
+ 
+  <c:set var="contexte" value="${entornAplicacioForm.contexte}"/>
+  <form:hidden path="nou" />
+  
+  <%@include file="entornAplicacioFormCorePre.jsp" %>
+
+  <%@include file="entornAplicacioFormCore.jsp" %>
+
+  <%@include file="entornAplicacioFormCorePost.jsp" %>
+
+  <%@include file="entornAplicacioFormButtons.jsp" %>
+
+  <c:if test="${not empty entornAplicacioForm.sections}">
+     <c:set var="__basename" value="entornAplicacio" scope="page" />
+     <%@include file="sections.jsp"%>
+  </c:if>
+
+
+  <c:if test="${entornAplicacioForm.attachedAdditionalJspCode}">
+     <%@include file="../webdbmodificable/entornAplicacioFormModificable.jsp" %>
+  </c:if>
+
+</form:form>
+
+
