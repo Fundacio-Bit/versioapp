@@ -89,6 +89,7 @@ public class VersionsAplicacioPublicController extends AplicacioController {
             appFilterForm.setVisibleMultipleSelection(false);
             appFilterForm.setVisibleExportList(false);
             appFilterForm.setItemsPerPage(-1); // TOTS
+            appFilterForm.setFooterListVisible(false);
 
             {
                 SelectMultipleStringKeyValue entornsSMSKV = new SelectMultipleStringKeyValue(
